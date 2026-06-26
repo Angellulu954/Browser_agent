@@ -7,3 +7,4 @@ with sync_playwright() as p:
     print("Browser Opened Succesfully")
     input("Press Enter to close... ")
     browser.close()
+    
