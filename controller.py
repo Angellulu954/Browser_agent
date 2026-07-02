@@ -29,16 +29,16 @@ class BrowserController:
         self.page.press(selector,key)
     def get_text(self,selector):
         return self.page.text_content(selector)
-        
-controller=BrowserController()
-controller.goto("https://example.com")
-#controller.screenshot("screenshot.png")
-title=controller.title()
-#controller.click_link("a")
-#controller.type("#APjFqb","Olivia Rodrigo")
-#controller.press("#APjFqb","Enter")
-text=controller.get_text("h1")
-print(text)
+if __name__=="__main__":
+    controller=BrowserController()
+    controller.goto("https://example.com")
+    #controller.screenshot("screenshot.png")
+    title=controller.title()
+    #controller.click_link("a")
+    #controller.type("#APjFqb","Olivia Rodrigo")
+    #controller.press("#APjFqb","Enter")
+    text=controller.get_text("h1")
+    print(text)
 
-controller.close()
+    controller.close()
     
