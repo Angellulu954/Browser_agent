@@ -15,6 +15,13 @@ class BrowserController:
         self.page.goto(url)
     def screenshot(self,file):
         self.page.screenshot(path=file)   
+    def get_all(self,selector):
+        locates=self.page.locator(selector).all()
+        s=[]
+        for locate in locates:
+            s.append(locate.text_content())
+        return s    
+         
     def title(self):
         
         return self.page.title()

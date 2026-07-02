@@ -1,4 +1,5 @@
 from controller import BrowserController
+
 class SearchBot:
     def __init__(self):
         self.controller=BrowserController()
@@ -7,5 +8,11 @@ class SearchBot:
         self.controller.type("#APjFqb",query)
         self.controller.press("#APjFqb","Enter")
         self.controller.screenshot("screenshot.png")
+        url= self.controller.current_url()
+        title=self.controller.title()
+        print("Url:",url)
+        print("title",title)
         self.controller.close()
         
+search=SearchBot()
+search.search("Playwright Python")

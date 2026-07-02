@@ -23,3 +23,10 @@ error message
 page url
 
 
+
+Resposnibilities for quotesscrapper:
+get all the quotes 
+future:
+get the quotes by a specific person
+
+

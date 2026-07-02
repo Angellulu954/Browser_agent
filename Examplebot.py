@@ -9,7 +9,10 @@ class PracticeBot:
             print("Success")
         else:
             print("Failed")
+        title=self.controller.title()
+        print("title",title)
         self.controller.close()
+        
 
 
 search=PracticeBot()
