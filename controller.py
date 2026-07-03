@@ -24,7 +24,7 @@ class BrowserController:
          
     def title(self):
         
-        return self.page.title()
+        return self.page.title() 
     
     def current_url(self)  :
         return self.page.url
