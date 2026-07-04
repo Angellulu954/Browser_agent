@@ -4,29 +4,46 @@ class QuoteScraper:
         self.controller=BrowserController()
         self.quotes=[]
     def qoutes(self):
-        self.controller.goto("https://quotes.toscrape.com/")
-        self.controller.get_text(".quote")
-        quote=self.controller.get_all(".text")
-        author=self.controller.get_all(".author")
-       
-        for i in range(len(quote)):
-            self.quotes.append({"quote":quote[i],
-                    "author":author[i]})
-            
-        print(self.quotes)
+        self.controller.goto("https://quotes.toscrape.com")
+        #loop for all the different pages 
+        while True:
+            self.controller.get_text(".quote")
+            quote=self.controller.get_all(".text")
+            author=self.controller.get_all(".author")
 
+            for i in range(len(quote)):
+
+                self.quotes.append({"quote":quote[i],
+                        "author":author[i]})
+                
+            print(self.quotes)
+            available=self.controller.get_availability_of_selector(".next a")
+            
+            
+            #check if page has a next button
+            if not available:
+                
+            
+                break
+
+            self.controller.click_link(".next a")
+       
+   
         
         return self.quotes
     def FindByAuthor(self,author):
         
         print(f"{author} quotes:")
         authorquote=[]
+        
         for a in self.quotes:
                 
                 
                 if author in a["author"]:
                     
                     authorquote.append(a["quote"])
+        if len(authorquote)==0:
+            print("Author not Found")
                     
         for b in authorquote:
             print("-",b)
@@ -37,6 +54,6 @@ class QuoteScraper:
 
 quotest=QuoteScraper()
 quotest.qoutes()
-result=quotest.FindByAuthor("Albert")
+result=quotest.FindByAuthor("Monroe")
 
 quotest.close()

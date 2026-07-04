@@ -21,8 +21,12 @@ class BrowserController:
         for locate in locates:
             s.append(locate.text_content())
         return s    
+    def get_availability_of_selector(self,selector):
+        
+        return self.page.locator(selector).is_visible()
          
     def title(self):
+        
         
         return self.page.title() 
     
